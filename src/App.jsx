@@ -14,7 +14,6 @@ import VideosGallery from './components/VideosGallery.jsx';
 import Paquetes from './components/Paquetes.jsx';
 import Voces from './components/Voces.jsx';
 import Web from './components/Web.jsx';
-import Marketing from './components/Marketing.jsx';
 import Proceso from './components/Proceso.jsx';
 import Precios from './components/Precios.jsx';
 import Nosotros from './components/Nosotros.jsx';
@@ -22,6 +21,7 @@ import Faq from './components/Faq.jsx';
 import Contacto from './components/Contacto.jsx';
 import Footer from './components/Footer.jsx';
 import Perfil from './components/Perfil.jsx';
+import Loader from './components/Loader.jsx';
 
 export default function App() {
   const home = useRef(null), p1 = useRef(null), p2 = useRef(null);
@@ -41,6 +41,7 @@ export default function App() {
 
   return (
     <AudioProvider>
+      <Loader />
       <a className="skip" href="#contenido">Saltar al contenido</a>
       <Header />
       <main id="contenido">
@@ -55,7 +56,6 @@ export default function App() {
           <div className="screen"><Paquetes /></div>
           <div className="screen"><Voces /></div>
           <div className="screen"><Web /></div>
-          <div className="screen"><Marketing /></div>
           <div className="screen"><Proceso /></div>
           <div className="screen"><Precios /></div>
           <div className="screen"><Nosotros /></div>

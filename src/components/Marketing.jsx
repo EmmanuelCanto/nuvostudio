@@ -51,7 +51,7 @@ export default function Marketing() {
   return (
     <section className="sec dark" id="nfc" style={{ '--gx': '74%', '--gy': '60%' }}>
       <div className="wrap">
-        <div className="meta"><span><Nuvo star={false} /> <span className="it">NFC</span> próximamente</span><span>2026 / 08</span></div>
+        <div className="meta"><span><Nuvo star={false} /> <span className="it">NFC</span> próximamente</span></div>
         <div className="head">
           <h2><span className="soon">Próximamente</span>Más reseñas, <em>menos fricción</em>.</h2>
           <p>Muy pronto: tarjetas y stickers NFC. Tu cliente acerca su teléfono y, sin descargar nada, abre tu menú digital o la página para dejarte una reseña en Google Maps. Lo estamos preparando poco a poco.</p>

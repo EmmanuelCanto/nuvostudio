@@ -155,7 +155,7 @@ export default function Voces() {
   return (
     <section className="sec dark" id="voces" style={{ '--gx': '50%', '--gy': '34%' }}>
       <div className="wrap">
-        <div className="meta"><span><Nuvo star={false} /> <span className="it">voces</span> que regresan</span><span>2026 / 06</span></div>
+        <div className="meta"><span><Nuvo star={false} /> <span className="it">voces</span> que regresan</span></div>
         <div className="head">
           <h2>Un recuerdo que se puede <em>volver a escuchar</em>.</h2>
           <p>Con audios que la familia nos comparte, recreamos con IA la voz de un ser querido que ya partió, para un mensaje, un video homenaje o un audio de recuerdo. Con calidez, respeto y reglas claras.</p>

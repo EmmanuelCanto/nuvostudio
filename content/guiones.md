@@ -125,15 +125,6 @@ Este es el texto que se "teclea" en el paso 02 y que se escucha en el paso 04 co
 
 ---
 
-## 5. NFC (opcional, para cuando lancen el servicio)
-
-**Archivos:** `marketing-hombre.mp3` y `marketing-mujer.mp3`
-
-> Tu cliente acerca su celular, deja su *reseña*,
-> y tu negocio sube en *Google Maps*.
-
----
-
 ## Resumen de archivos en `public/audio/voz/`
 
 | Archivo | Obligatorio | Para qué |
@@ -142,7 +133,7 @@ Este es el texto que se "teclea" en el paso 02 y que se escucha en el paso 04 co
 | `edicion-mujer.mp3` | Sí | Edición de video, voz de mujer |
 | `voz-entrada-original.mp3` | Sí | Voces, paso 01 (voz original, 15–25 s) |
 | `voz-salida-clonada.mp3` | Sí | Voces, paso 04 (voz clonada, clara) |
-| `motion-*`, `web-*`, `marketing-*` | No | Locuciones opcionales (aún sin usar en la página) |
+| `motion-*`, `web-*` | No | Locuciones opcionales (aún sin usar en la página) |
 
 ## Sincronizar los subtítulos
 

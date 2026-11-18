@@ -5,7 +5,7 @@ export default function Nosotros() {
   return (
     <section className="sec tint" id="nosotros">
       <div className="wrap">
-        <div className="meta"><span><Nuvo star={false} /> <span className="it">quiénes</span> somos</span><span>2026 / 11</span></div>
+        <div className="meta"><span><Nuvo star={false} /> <span className="it">quiénes</span> somos</span></div>
         <div className="head">
           <h2>Dos personas, <em>los dos puntos de la ü</em>.</h2>
           <p>nüvo nació de una pareja que comparte el gusto por contar historias con tecnología. Como el diamante y el círculo sobre la ü: dos formas distintas que, juntas, cambian cómo suena todo. Conoce a cada quien y revisa su trayectoria.</p>

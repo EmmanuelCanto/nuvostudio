@@ -17,7 +17,7 @@ export default function Proceso() {
   return (
     <section className="sec light" id="proceso">
       <div className="wrap">
-        <div className="meta"><span><Nuvo star={false} /> <span className="it">cómo</span> trabajamos</span><span>2026 / 09</span></div>
+        <div className="meta"><span><Nuvo star={false} /> <span className="it">cómo</span> trabajamos</span></div>
         <div className="head">
           <h2>Simple, claro y <em>sin sorpresas</em>.</h2>
           <p>El mismo camino para un reel, una página o un homenaje de voz.</p>

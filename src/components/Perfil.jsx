@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { useScene } from '../scenes/useScene.js';
 import { E, seg, back, draw, T, when, q, qa } from '../scenes/anim.js';
 import { cvCues } from '../audio/sfxMap.js';
-import { contact, whatsappUrl } from '../data/site.js';
+import { contact } from '../data/site.js';
 import Grid from './Grid.jsx';
 import Nuvo from './Nuvo.jsx';
 
@@ -33,7 +33,7 @@ export default function Perfil({ founder: f, index, viewRef }) {
     <div className="view light" id={'view-' + f.id} data-view={f.id} ref={viewRef} hidden>
       <div className="cv">
         <div className="wrap">
-          <div className="meta"><span><Nuvo star={false} /> <span className="it">nuestros</span> perfiles</span><span>2026 / {f.counter}</span></div>
+          <div className="meta"><span><Nuvo star={false} /> <span className="it">nuestros</span> perfiles</span></div>
           <a className="back" href="#inicio">← Volver al estudio</a>
           <h1>Hola, soy {f.name}.<br />{f.roleParts[0]} <em>y</em> {f.roleParts[1]}.</h1>
           <div className="cv-mid">
@@ -42,9 +42,8 @@ export default function Perfil({ founder: f, index, viewRef }) {
               <p>{f.bio}</p>
               <p>{f.cofounder}</p>
               <ul className="cv-lines">
-                {/* Solo los datos de la empresa (src/data/site.js -> contact y whatsappNumber) */}
-                <li>Correo / <a href={'mailto:' + contact.email}>{contact.emailLabel}</a></li>
-                <li>WhatsApp / <a href={whatsappUrl} rel="noopener">{contact.whatsappLabel}</a></li>
+                {/* Contacto personal: solo el correo (el WhatsApp es el de la empresa, en Contacto) */}
+                <li>Correo / <a href={'mailto:' + f.email}>{f.email}</a></li>
               </ul>
               <div className="btns">
                 {f.cvUrl !== null && (f.cvUrl
@@ -92,7 +91,7 @@ export default function Perfil({ founder: f, index, viewRef }) {
               <a className="btn btn-ok" href="#inicio">← Volver al estudio</a>
             </aside>
           </div>
-          <div className="cv-foot"><span>{contact.emailLabel}</span><span>{f.role}</span><span>{contact.city}, México</span></div>
+          <div className="cv-foot"><span>{f.email}</span><span>{f.role}</span><span>{contact.city}, México</span></div>
         </div>
       </div>
     </div>

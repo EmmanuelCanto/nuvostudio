@@ -60,7 +60,7 @@ export default function VideosGallery() {
   return (
     <section className="sec dark" id="portafolio" style={{ '--gx': '50%', '--gy': '30%' }}>
       <div className="wrap">
-        <div className="meta"><span><Nuvo star={false} /> <span className="it">trabajos</span> seleccionados</span><span>2026 / 04</span></div>
+        <div className="meta"><span><Nuvo star={false} /> <span className="it">trabajos</span> seleccionados</span></div>
         <div className="head">
           <h2>Videos que <em>editamos</em>.</h2>
           <p>Desde piezas de puro motion graphics hasta los videos de Polígonos del Evangelio y videos hablando a cámara con motion graphics encima.</p>

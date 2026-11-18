@@ -4,6 +4,7 @@ import { useScreenLeave } from '../screens.js';
 import { E, seg, draw, T, q, qa } from '../scenes/anim.js';
 import { editCues } from '../audio/sfxMap.js';
 import { edicionVideo } from '../data/site.js';
+import engine from '../audio/engine.js';
 import Nuvo from './Nuvo.jsx';
 
 const W = ['Así', 'editamos', 'tus', 'videos', 'para', 'que', 'nadie', 'deje', 'de', 'verlos'];
@@ -14,7 +15,8 @@ export default function Edicion() {
   const ref = useRef(null), videoRef = useRef(null);
   const ext = useRef({});          // partes de la escena reutilizadas mientras suena el video
   const [playing, setPlaying] = useState(false);
-  const [shown, setShown] = useState(false);   // el video se queda visible en pausa; se oculta al terminar
+  const [shown, setShown] = useState(true);    // el video se ve en el teléfono; al terminar vuelve la animación
+  const [muted, setMuted] = useState(true);
 
   /* ---- Edición de video: clips, subtítulos y motion ---- */
   const ctl = useScene(ref, {
@@ -88,6 +90,18 @@ export default function Edicion() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playing]);
 
+  // El video arranca solo al llegar a esta pantalla: con sonido si el visitante entró con sonido
+  // (pantalla de carga), si no, en silencio. Se pausa al salir.
+  useEffect(() => engine.onScreen((active) => {
+    const v = videoRef.current, scr = ref.current && ref.current.closest('.screen');
+    if (!v || !scr) return;
+    if (active === scr) {
+      v.muted = !engine.enabled; setMuted(v.muted);
+      v.currentTime = 0; setShown(true);
+      const pr = v.play(); if (pr && pr.catch) pr.catch(() => { v.muted = true; setMuted(true); v.play().catch(() => {}); });
+    } else if (!v.paused) v.pause();
+  }), []);
+
   function play() {
     const v = videoRef.current;
     if (!v) return;
@@ -97,13 +111,19 @@ export default function Edicion() {
     if (pr && pr.catch) pr.catch(() => setPlaying(false));
   }
   function pause() { const v = videoRef.current; if (v) v.pause(); }
-  function toggle() { if (playing) pause(); else play(); }
+  // Botón: activa/quita el sonido (y reproduce si estaba en pausa)
+  function toggle() {
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused || v.ended) { v.muted = false; setMuted(false); play(); return; }
+    v.muted = !v.muted; setMuted(v.muted);
+  }
   useScreenLeave(ref, () => { if (videoRef.current && !videoRef.current.paused) pause(); });
 
   return (
     <section className="sec tint" id="edicion">
       <div className="wrap">
-        <div className="meta"><span><Nuvo star={false} /> <span className="it">edición</span> de video</span><span>2026 / 03</span></div>
+        <div className="meta"><span><Nuvo star={false} /> <span className="it">edición</span> de video</span></div>
         <div className="row">
           <div className="body">
             <span className="blue-rule"></span>
@@ -131,16 +151,16 @@ export default function Edicion() {
               <div className="grad"></div>
               <span className="rec">REC</span><span className="plt" id="ePlt">TikTok</span>
               <div className="sub"><span className="s0" id="eS0"></span><span className="s1" id="eS1"></span><span className="s2" id="eS2"></span></div>
-              <video ref={videoRef} className={'ph9-video' + (shown ? ' on' : '')} src={edicionVideo.src} poster={edicionVideo.poster} preload="none" playsInline
+              <video ref={videoRef} className={'ph9-video' + (shown ? ' on' : '')} src={edicionVideo.src} poster={edicionVideo.poster} preload="metadata" muted playsInline
                 onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onEnded={() => { setPlaying(false); setShown(false); }} onClick={toggle} />
             </div>
             <div className="evoice">
-              <button type="button" className="eplay" onClick={toggle} aria-label={playing ? 'Pausar video' : 'Ver video'} aria-pressed={playing ? 'true' : 'false'}>
-                {playing
-                  ? <svg viewBox="0 0 16 16"><path d="M3.5 2h3.2v12H3.5zM9.300 2h3.2v12H9.300z" fill="currentColor" /></svg>
-                  : <svg viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z" fill="currentColor" /></svg>}
+              <button type="button" className="eplay" onClick={toggle} aria-label={muted || !playing ? 'Escuchar video' : 'Silenciar video'} aria-pressed={!muted && playing ? 'true' : 'false'}>
+                {!muted && playing
+                  ? <svg viewBox="0 0 16 16"><path d="M2 6h3l4-3v10l-4-3H2z" fill="currentColor" /><path d="M11.500 5.500a3.500 3.500 0 0 1 0 5" stroke="currentColor" strokeWidth="1.6" fill="none" strokeLinecap="round" /></svg>
+                  : <svg viewBox="0 0 16 16"><path d="M2 6h3l4-3v10l-4-3H2z" fill="currentColor" /><path d="M11 6l4 4M15 6l-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>}
               </button>
-              <span>{playing ? 'Así editamos tus videos' : <>Mira cómo <span className="it">editamos</span> · 23 s con sonido</>}</span>
+              <span>{!muted && playing ? <>Así <span className="it">editamos</span> tus videos</> : <>Toca para <span className="it">escuchar</span> el video</>}</span>
             </div>
             <div className="etl" aria-hidden="true">
               <div className="etl-wrap">

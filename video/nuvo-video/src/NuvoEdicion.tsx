@@ -18,20 +18,18 @@ const f = (s: number) => Math.round(s * FPS);
 // Segundo del pico dentro de cada archivo (igual que src/audio/sfxMap.js de la página)
 const PEAK: Record<string, number> = {
   "projector-draw": 3.34, "camera-flash": 0.02, shutter: 0.05, "click-1": 1.66, "click-2": 0.1, "click-3": 0.05,
-  "ui-click-soft": 0.05, "ui-cli": 0.05, "ui-aparicion-1": 0.05, "ui-aparicion-3": 0.05, "ui-aparicion-4": 0.05,
+  "riser-reverse": 0.93, "ui-aparicion-2": 0.05, "ui-click-soft": 0.05, "ui-cli": 0.05, "ui-aparicion-1": 0.05, "ui-aparicion-3": 0.05, "ui-aparicion-4": 0.05,
   burbuja: 0.05, "ui-down": 0.05, "beep-gleam": 0.1, coins: 0.15, woosh: 0.5, "woosh-2": 0.58, "woosh-rapido": 0.46,
   "woosh-fast": 0.43, "woosh-bomb": 0.14, glitch: 0.05, "glitch-ligero": 0.05, "pop-1": 0.05, "pop-2": 0.05, "pop-3": 0.05,
   "spin-beep": 0.8,
 };
 
-// Un efecto por acción y NINGUNO se repite en el video. t = segundo de la acción.
+// Un efecto por acción, NINGUNO se repite en el video y sin efectos "woosh". t = segundo de la acción.
 const SFX: { t: number; sfx: string; gain: number }[] = [
-  { t: 0.12, sfx: "woosh-fast", gain: 0.5 }, // entra el teléfono
   { t: 2.24, sfx: "ui-aparicion-1", gain: 0.55 }, // vistas
   { t: 2.97, sfx: "pop-1", gain: 0.55 }, // retención
   { t: 4.68, sfx: "ui-cli", gain: 0.6 }, // se marcan los silencios
   { t: 5.02, sfx: "shutter", gain: 0.4 }, // corte
-  { t: 5.15, sfx: "woosh-rapido", gain: 0.35 }, // se juntan los clips
   { t: 5.65, sfx: "glitch-ligero", gain: 0.8 }, // fuera muletillas
   { t: 6.42, sfx: "ui-aparicion-3", gain: 0.45 }, // escena de subtítulos
   { t: 7.2, sfx: "click-1", gain: 0.8 }, // "palabra"
@@ -41,7 +39,7 @@ const SFX: { t: number; sfx: string; gain: number }[] = [
   { t: 9.97, sfx: "pop-2", gain: 0.45 }, // keyframes
   { t: 10.58, sfx: "coins", gain: 0.4 }, // cifra
   { t: 11.17, sfx: "beep-gleam", gain: 0.6 }, // brillo "motion graphics"
-  { t: 11.8, sfx: "woosh-2", gain: 0.38 }, // cambio de voz
+  { t: 11.8, sfx: "riser-reverse", gain: 0.4 }, // cambio de voz
   { t: 12.22, sfx: "ui-aparicion-4", gain: 0.45 }, // música
   { t: 13.05, sfx: "pop-3", gain: 0.38 }, // efectos
   { t: 13.9, sfx: "spin-beep", gain: 0.45 }, // gira a vertical
@@ -49,7 +47,7 @@ const SFX: { t: number; sfx: string; gain: number }[] = [
   { t: 16.55, sfx: "ui-click-soft", gain: 1.0 }, // Reels
   { t: 17.13, sfx: "glitch", gain: 0.75 }, // Shorts
   { t: 18.25, sfx: "camera-flash", gain: 0.5 }, // grabar
-  { t: 19.86, sfx: "woosh-bomb", gain: 0.28 }, // entra el logo
+  { t: 19.86, sfx: "ui-aparicion-2", gain: 0.5 }, // entra el logo
   { t: 20.1, sfx: "ui-down", gain: 0.5 }, // caen los puntos de la ü
 ];
 

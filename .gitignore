@@ -3,3 +3,9 @@ dist
 .vercel
 .DS_Store
 scripts/__pycache__
+
+# Respaldos locales (no subir)
+_backup_latido
+# Proyecto de Remotion: no se despliega con la página
+video/nuvo-video/out
+video/nuvo-video/node_modules

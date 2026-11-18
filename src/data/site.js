@@ -116,8 +116,6 @@ export const prices = [
     items: ['Mensaje de voz', 'Audio de recuerdo', 'Consentimiento por escrito'], cta: 'Platicar sin compromiso' },
   { title: 'Página web', amount: '$6,000', desc: 'Landing page para tu negocio, adaptada a celular.',
     items: ['Landing pages', 'Sitios completos', 'Menús digitales'], cta: 'Cotizar página' },
-  { title: 'nüvo NFC', amount: '$250', flag: 'Próximamente', desc: 'Por tarjeta o sticker programado. Lo estamos preparando.',
-    items: ['Reseñas en Google Maps', 'Paquete de 5 con menú digital: $1,500 MXN'], cta: 'Avísame cuando esté' },
 ];
 
 /* ---------- Preguntas frecuentes ---------- */
@@ -136,15 +134,13 @@ export const faq = [
     a: 'Tus clips tal como los grabaste (de preferencia en vertical), el audio si lo grabaste aparte, y una idea de lo que quieres decir. Si tienes dudas de cómo grabar, te damos recomendaciones sencillas.' },
   { q: '¿Cuánto tarda un video o una página web?',
     a: 'Como referencia: un video de 30 segundos, de 5 a 7 días hábiles; una landing page, de 1 a 2 semanas. Te confirmamos la fecha exacta en la propuesta.' },
-  { q: '¿Cómo funcionarán las tarjetas NFC? ¿Sirven en cualquier teléfono?',
-    a: 'Es un servicio que estamos preparando y lanzaremos muy pronto. Funcionan con la mayoría de los teléfonos iPhone y Android recientes: basta acercar el teléfono, sin instalar aplicaciones. También podemos añadir un código QR como respaldo.' },
   { q: '¿Cómo se paga?',
     a: 'Normalmente 50% de anticipo y 50% contra entrega, por transferencia. [Confirma aquí tus formas de pago y si emites factura].' },
 ];
 
 /* ---------- Fundadores / perfiles (CV) ----------
-   Los perfiles muestran SOLO el correo y el WhatsApp de la empresa (contact / whatsappNumber,
-   arriba en este archivo): no hay enlaces personales.
+   Cada perfil muestra solo su correo personal (email). El WhatsApp es uno solo, el de la
+   empresa (whatsappNumber, arriba), y aparece en la sección Contacto.
    cvUrl: "" muestra la nota "(reemplaza con el enlace a tu PDF)"; cvUrl: null oculta el botón.
           Con cvUrl: "/cv/mi-cv.pdf" el botón "Descargar CV" descarga el archivo
           (ponlo en la carpeta public/cv/). */
@@ -157,6 +153,7 @@ export const founders = [
     role: 'Motion Design & Edición de video',          // tarjeta y pie del CV
     roleParts: ['Motion Design', 'Edición de video'],   // título del CV: "Motion Design <y> Edición de video"
     cofounder: 'Cofundador de nüvo.',
+    email: 'emmanuel-canto@hotmail.com',
     bio: 'Ingeniero de software y editor de video. Después de cinco años desarrollando sitios y sistemas web, hoy combino ese lado técnico con la edición: motion graphics, subtítulos animados y diseño de sonido para videos que se entienden a la primera. Edito los videos de mi propio perfil de TikTok y del canal Polígonos del Evangelio.',
     cvUrl: null,   // null = sin botón de CV
     // Curva de trayectoria (3 etapas). yr / nm / sub son los textos; sub es opcional.
@@ -191,6 +188,7 @@ export const founders = [
     role: 'Social Media & Estrategia digital',
     roleParts: ['Social Media', 'Estrategia digital'],
     cofounder: 'Cofundadora de nüvo.',
+    email: 'mariajosehernandezangulo@gmail.com',
     bio: 'Licenciada en Mercadotecnia y Publicidad, con más de seis años gestionando redes sociales, comunidades y campañas en Meta Ads para marcas de distintos sectores. En nüvo me encargo de que cada video conecte con su público: estrategia, copys, métricas y la atención cercana a cada cliente.',
     cvUrl: null,
     career: [

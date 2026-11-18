@@ -36,7 +36,7 @@ export default function Web() {
   return (
     <section className="sec light" id="web">
       <div className="wrap">
-        <div className="meta"><span><Nuvo star={false} /> <span className="it">páginas</span> web</span><span>2026 / 07</span></div>
+        <div className="meta"><span><Nuvo star={false} /> <span className="it">páginas</span> web</span></div>
         <div className="row flip">
           <div className="body">
             <span className="blue-rule"></span>

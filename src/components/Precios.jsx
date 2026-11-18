@@ -5,7 +5,7 @@ export default function Precios() {
   return (
     <section className="sec light" id="precios">
       <div className="wrap">
-        <div className="meta"><span><Nuvo star={false} /> <span className="it">precios</span> desde</span><span>2026 / 10</span></div>
+        <div className="meta"><span><Nuvo star={false} /> <span className="it">precios</span> desde</span></div>
         <div className="head">
           <h2>Inversión <em>“desde”</em>, en pesos mexicanos.</h2>
           <p>Cada proyecto se cotiza según lo que necesitas. Estos montos te dan una idea para empezar.</p>

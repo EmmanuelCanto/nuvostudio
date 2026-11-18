@@ -567,3 +567,35 @@ footer{position:relative;z-index:1}
 .vid-m.tt{cursor:default;background:#000}
 .vid-m.tt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .vid-m.tt .cat{pointer-events:none;z-index:1}
+
+/* ---------- Pantalla de carga (Loader.jsx) ---------- */
+html.loading,html.loading body{overflow:hidden}
+.loader{position:fixed;inset:0;z-index:200;display:grid;place-items:center;color:#fff;
+  background:radial-gradient(50% 40% at 50% 46%,rgba(52,120,255,.28),rgba(52,120,255,0) 70%),linear-gradient(160deg,#050B24,#07143F 60%,#0A1F5C);
+  transition:opacity .8s var(--ease),visibility .8s}
+.loader.leaving{opacity:0;visibility:hidden}
+.loader.leaving .ld-in{transform:scale(1.04);transition:transform .8s var(--ease)}
+.ld-in{display:flex;flex-direction:column;align-items:center;gap:2.2rem;padding:1.5rem}
+.ld-logo{width:min(340px,70vw);height:auto;overflow:visible}
+.ld-star{transform-box:fill-box;transform-origin:62% 52%;animation:ldStarIn 1s cubic-bezier(.34,1.56,.64,1) both,ldBreathe 2.6s ease-in-out 1s infinite}
+.ld-l,.ld-dot{transform-box:fill-box;transform-origin:50% 100%;animation:ldUp .7s var(--ease) both;animation-delay:calc(.25s + var(--i) * .07s)}
+.ld-dot{animation-delay:calc(.55s + var(--i) * .08s)}
+/* al terminar: cada letra brinca una vez y luego los puntos de la ü rebotan cada pocos segundos */
+.loader.ready .ld-star{animation:none}
+.loader.ready .ld-l{animation:ldHop .55s cubic-bezier(.34,1.56,.64,1) both;animation-delay:calc(var(--i) * .09s)}
+.loader.ready .ld-dot{animation:ldDot 2.8s cubic-bezier(.34,1.56,.64,1) infinite;animation-delay:calc(.45s + var(--i) * .12s)}
+.ld-foot{display:grid;justify-items:center;gap:1rem;min-height:3.2rem}
+.ld-trk{width:min(220px,50vw);height:1px;background:rgba(255,255,255,.12);overflow:hidden;transition:opacity .5s}
+.ld-trk i{display:block;height:100%;background:rgba(232,236,245,.7);transform-origin:left}
+.loader.ready .ld-trk{opacity:0}
+.ld-txt{margin:0;font-size:1.02rem;letter-spacing:.02em;color:rgba(232,236,245,.55);animation:ldUp .6s var(--ease) both}
+.ld-pct{font-variant-numeric:tabular-nums;font-size:.8rem;letter-spacing:.2em}
+.ld-txt button{background:none;border:0;padding:0 0 3px;font:inherit;letter-spacing:inherit;color:rgba(232,236,245,.72);cursor:pointer;
+  border-bottom:1px solid rgba(127,168,255,.45);transition:color .25s,border-color .25s}
+.ld-txt button:hover,.ld-txt button:focus-visible{color:#fff;border-color:#7FA8FF;outline:none}
+@keyframes ldStarIn{from{transform:scale(0) rotate(-140deg);opacity:0}to{transform:none;opacity:1}}
+@keyframes ldBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@keyframes ldUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes ldHop{0%,100%{transform:none}45%{transform:translateY(-14%)}}
+@keyframes ldDot{0%,30%,100%{transform:none}8%{transform:translateY(-60%) scale(1.05)}16%{transform:translateY(0) scaleX(1.15) scaleY(.85)}22%{transform:translateY(-15%)}}
+@media (prefers-reduced-motion:reduce){.loader *{animation:none!important}}

@@ -5,7 +5,7 @@ export default function Paquetes() {
   return (
     <section className="sec light" id="paquetes">
       <div className="wrap">
-        <div className="meta"><span><Nuvo star={false} /> <span className="it">paquetes</span> de edición</span><span>2026 / 05</span></div>
+        <div className="meta"><span><Nuvo star={false} /> <span className="it">paquetes</span> de edición</span></div>
         <div className="head">
           <h2>Paquetes de <em>edición</em>.</h2>
           <p>Tú grabas; nosotros editamos. Elige videos sueltos o un plan mensual con entregas constantes para que nunca te quedes sin publicar.</p>

@@ -24,7 +24,7 @@ export default function Contacto() {
   return (
     <section className="sec dark contact" id="contacto">
       <div className="wrap">
-        <div className="meta"><span><Nuvo star={false} /> <span className="it">datos de</span> contacto</span><span>2026 / 13</span></div>
+        <div className="meta"><span><Nuvo star={false} /> <span className="it">datos de</span> contacto</span></div>
         <div className="head">
           <h2>Empecemos con un <em>mensaje</em>.</h2>
           <p>Cuéntanos qué tienes en mente. Respondemos en menos de 24 horas hábiles.</p>
@@ -62,7 +62,6 @@ export default function Contacto() {
                 <option>Plan mensual de edición</option>
                 <option>Voces que regresan</option>
                 <option>Página web</option>
-                <option>nüvo NFC (próximamente)</option>
                 <option>Otro / no estoy seguro</option>
               </select>
             </label>

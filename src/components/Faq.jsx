@@ -30,7 +30,7 @@ export default function Faq() {
   return (
     <section className="sec light" id="faq">
       <div className="wrap">
-        <div className="meta"><span><Nuvo star={false} /> <span className="it">preguntas</span> frecuentes</span><span>2026 / 12</span></div>
+        <div className="meta"><span><Nuvo star={false} /> <span className="it">preguntas</span> frecuentes</span></div>
         <div className="faq-grid">
           <h2>Lo que más nos <em>preguntan</em>.</h2>
           <div className="faq">

@@ -38,7 +38,7 @@ export default function Hero() {
   return (
     <div className="hero dark" id="inicio">
       <div className="wrap">
-        <div className="meta"><span><Nuvo star={false} /> <span className="it">estudio</span> de edición</span><span>2026 / 01</span></div>
+        <div className="meta"><span><Nuvo star={false} /> <span className="it">estudio</span> de edición</span></div>
         <div className="hero-grid">
           <div className="hero-id" style={{ '--i': 0 }}>
             <p className="hero-name"><Nuvo /></p>
